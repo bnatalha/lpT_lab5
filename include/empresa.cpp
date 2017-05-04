@@ -3,7 +3,7 @@
 
 #include "empresa.h"
 
-void Empresa::adicionar_funcionario(Funcionario &employee)
+void Empresa::add_funcionario(Funcionario &employee)
 {
 	
 }

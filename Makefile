@@ -27,7 +27,7 @@ val:
 	valgrind --leak-check=yes bin/main
 
 #Generates executable files
-bin/main: bin/main.o bin/myMatrix_stats.o
+bin/main: bin/main.o
 	g++ $^ -o $@
 
 #Generates objects

@@ -6,18 +6,25 @@
 class Funcionario
 {
 	private:	
-		string nome; //? pode colocar const e alterar na criação?
+		const string nome; //? pode colocar const e alterar na criação?
 		float salario;
-		unsigned int admissao; //vale a pena não colocaar esse de int?
+		const string admissao; //vale a pena não colocaar esse de int?
 	public:
-		Funcionario(string name, unsigned int admission, int salary = 0.0 ):
+		Funcionario(string 		name, string 	  admission, float salary = 0.0 ):
+			nome(name), salario(salary), admissao(admission) {}
+		Funcionario(const char* name, string 	  admission, float salary = 0.0 ):
+			nome(name), salario(salary), admissao(admission) {}
+		Funcionario(const char* name, const char* admission, float salary = 0.0 ):
 			nome(name), salario(salary), admissao(admission) {}
 
 		~Funcionario(){}
 
 		//alterar salario
+		string get_nome() {return nome;}
+		float get_salario() {return salario;}
+		string get_admissao() {return admissao;}
 
-}
+};
 
 
 #endif

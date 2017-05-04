@@ -7,4 +7,4 @@
 
 ### Executando:
 
-`$ bin/main 2 8 32`
+`$ bin/main`

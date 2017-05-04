@@ -14,7 +14,7 @@ all: init bin/main clean
 
 #Creates the 'bin' folder at the current directory if there's no other folder with this name on it.
 init:
-	mkdir -p bin;\
+	mkdir -p bin
 
 #Creates the 'docs' folder at the current directory if there's no other folder with this name on it.
 #Generates .html documentation via doxygen at the folder 'docs'
@@ -27,12 +27,19 @@ val:
 	valgrind --leak-check=yes bin/main
 
 #Generates executable files
-bin/main: bin/main.o
+#bin/main: bin/main.o bin/funcionario.o bin/empresa.o
+bin/main: bin/main.o bin/funcionario.o
 	g++ $^ -o $@
 
 #Generates objects
 bin/main.o: src/main.cpp
 	g++ $(CPPFLAGS) $< $(INC) -c -o $@
+
+bin/funcionario.o: src/funcionario.cpp
+	g++ $(CPPFLAGS) $< $(INC) -c -o $@
+
+#bin/empresa.o: src/empresa.cpp
+#	g++ $(CPPFLAGS) $< $(INC) -c -o $@
 
 #Removes objects
 clean:

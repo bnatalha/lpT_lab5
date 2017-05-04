@@ -6,23 +6,30 @@
 class Funcionario
 {
 	private:	
-		const string nome; //? pode colocar const e alterar na criação?
+		const string nome; 
 		float salario;
-		const string admissao; //vale a pena não colocaar esse de int?
+		const string admissao; 
 	public:
-		Funcionario(string 		name, string 	  admission, float salary = 0.0 ):
+		Funcionario(string 		&name, string 	  &admission,float salary = 0.0 ):
 			nome(name), salario(salary), admissao(admission) {}
-		Funcionario(const char* name, string 	  admission, float salary = 0.0 ):
+		Funcionario(const char* name, string 	  &admission, float salary = 0.0 ):
 			nome(name), salario(salary), admissao(admission) {}
 		Funcionario(const char* name, const char* admission, float salary = 0.0 ):
 			nome(name), salario(salary), admissao(admission) {}
 
 		~Funcionario(){}
 
+		//verificar dados
+		string get_nome();
+		float get_salario();
+		string get_admissao();
+
 		//alterar salario
-		string get_nome() {return nome;}
-		float get_salario() {return salario;}
-		string get_admissao() {return admissao;}
+		void change_salario(float &new_salary);
+
+		//Sobrecarga de operadores
+		friend ostream& operator<< (ostream &out, Funcionario const a);
+		bool operator== (Funcionario &a);
 
 };
 

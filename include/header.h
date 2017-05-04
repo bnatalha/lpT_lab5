@@ -6,14 +6,19 @@
 using std::cout;
 using std::cin;
 using std::endl;
+using std::cerr;
 
 #include <string>
 
 using std::string;
 
-//#include <list>
+#include <list>
 
-//using std::list;
+using std::list;
+
+#include <ostream>
+
+using std::ostream;
 
 
 

@@ -27,8 +27,8 @@ val:
 	valgrind --leak-check=yes bin/main
 
 #Generates executable files
-#bin/main: bin/main.o bin/funcionario.o bin/empresa.o
-bin/main: bin/main.o bin/funcionario.o
+bin/main: bin/main.o bin/funcionario.o bin/empresa.o
+#bin/main: bin/main.o bin/funcionario.o
 	g++ $^ -o $@
 
 #Generates objects
@@ -38,8 +38,8 @@ bin/main.o: src/main.cpp
 bin/funcionario.o: src/funcionario.cpp
 	g++ $(CPPFLAGS) $< $(INC) -c -o $@
 
-#bin/empresa.o: src/empresa.cpp
-#	g++ $(CPPFLAGS) $< $(INC) -c -o $@
+bin/empresa.o: src/empresa.cpp
+	g++ $(CPPFLAGS) $< $(INC) -c -o $@
 
 #Removes objects
 clean:

@@ -1,6 +1,10 @@
 #ifndef HEADER_H
 #define HEADER_H
 
+#include <cstdlib>
+
+//exit
+
 #include <iostream>
 
 using std::cout;
@@ -19,6 +23,8 @@ using std::list;
 #include <ostream>
 
 using std::ostream;
+
+//#include <iterator>
 
 
 

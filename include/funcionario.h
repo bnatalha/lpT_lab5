@@ -10,14 +10,13 @@ class Funcionario
 		float salario;
 		const string admissao; 
 	public:
-		Funcionario(string 		&name, string 	  &admission,float salary = 0.0 ):
+		Funcionario(string 		&name, string 	  &admission,float salary = 0 ):
 			nome(name), salario(salary), admissao(admission) {}
-		Funcionario(const char* name, string 	  &admission, float salary = 0.0 ):
+		Funcionario(const char* name, string 	  &admission, float salary = 0 ):
 			nome(name), salario(salary), admissao(admission) {}
-		Funcionario(const char* name, const char* admission, float salary = 0.0 ):
+		Funcionario(const char* name, const char* admission, float salary = 0 ):
 			nome(name), salario(salary), admissao(admission) {}
-
-		~Funcionario(){}
+		Funcionario(){}
 
 		//verificar dados
 		string get_nome();

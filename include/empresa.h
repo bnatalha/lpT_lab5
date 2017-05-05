@@ -12,7 +12,7 @@
 //Bibliotecas do STL
 #include <fstream>
 
-using sttd::ifstream;
+using std::ifstream;
 
 class Empresa
 {
@@ -26,11 +26,11 @@ class Empresa
 		Empresa(string name, string code)
 			: nome(name), cnpj(code) {}
 
-		Empresa(string name, string code, list<Funcionario> &list_p) 
-			: nome(name), cnpj(code), lista_f(lista_p) {}
+		Empresa(string name, string code, list<Funcionario> &employee_list) 
+			: nome(name), cnpj(code), lista_f(employee_list) {}
 		//Destrutores
 		~Empresa(){
-			delete[] lista_f;
+			//~lista_f();
 		}
 
 		// Funções
@@ -38,21 +38,22 @@ class Empresa
 		// Sobrecargas de operadores
 		//
 		// Sobrecarga de << imprime lista de funcionarios
+		friend ostream& operator<< (ostream &out, Empresa &a);
 
 		// Adicionar funcionários (o mesmo funcionário não pode ter dois cadastros na mesma empresa)
 		void add_funcionario(Funcionario &employee);	// para adicionar um Funcionaro
-		void add_funcionario(list<Funcionario> *&employee_list);	// para adicionar ponteiro para Funcionario
+		void add_funcionario(list<Funcionario> &employee_list);	// para adicionar ponteiro para Funcionario
 		void add_funcionario(const char *filename);	// para adicionar a partir de um arquivo .csv
 		void add_funcionario(string &filename);	// para adicionar a partir de um arquivo .csv
 
 		// Aumento de X% a todos funcionarios de uma vez;
-		// void dar_aumento_a_todos(float raise_rate);
+		void dar_aumento_a_todos(float raise_rate);
 
 		// Lista funcionarios cadastrados desde 90 dias atrás (?)
 		// void funcionario_em_experiencia( void );
 
 		//Funções auxiliares
-		unsigned int qtd_funcionarios();
+		unsigned int qtd_funcionario();
 
 
 };

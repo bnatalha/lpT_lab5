@@ -16,12 +16,23 @@ string Funcionario::get_admissao()
 	return admissao;
 }
 
-//alterar salario
+//alterações
 void Funcionario::change_salario(float &new_salary) 
 { 
 	salario = new_salary; 
 }
 
+void Funcionario::change_nome(string &new_name)
+{
+	nome = new_name; 
+}
+
+void Funcionario::change_admissao(string &new_admission)
+{	
+	admissao = new_admission; 
+}	
+
+//sobrecarga de operadores
 ostream& operator<< (ostream &out, Funcionario const a)
 {
 	out << "Nome: " << a.nome
@@ -37,4 +48,12 @@ bool Funcionario::operator== (Funcionario &a)
 		salario == a.salario)
 		return true;
 	return false;
+}
+
+Funcionario& Funcionario::operator= (Funcionario const &a)
+{
+	nome = a.nome;
+	salario = a.salario;
+	admissao = a.admissao;
+	return *this;
 }

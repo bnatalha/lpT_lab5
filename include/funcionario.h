@@ -3,12 +3,13 @@
 
 #include "header.h"
 
+//nada alocado dinamicamente
 class Funcionario
 {
 	private:	
-		const string nome; 
+		string nome; 
 		float salario;
-		const string admissao; 
+		string admissao; 
 	public:
 		Funcionario(string 		&name, string 	  &admission,float salary = 0 ):
 			nome(name), salario(salary), admissao(admission) {}
@@ -23,12 +24,15 @@ class Funcionario
 		float get_salario();
 		string get_admissao();
 
-		//alterar salario
+		//alterar dados
+		void change_nome(string &new_name);
 		void change_salario(float &new_salary);
+		void change_admissao(string &new_admission);
 
 		//Sobrecarga de operadores
 		friend ostream& operator<< (ostream &out, Funcionario const a);
 		bool operator== (Funcionario &a);
+		Funcionario& operator= (Funcionario const &a);	//pra que?
 
 };
 

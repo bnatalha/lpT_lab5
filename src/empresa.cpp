@@ -50,32 +50,40 @@ void Empresa::add_funcionario(const char *filename)
 
 	//else
 
+	Funcionario dummy;
+	float dummy_sala;
 	string dummy_data;
 	string dummy_nome;
-	string dummy_sala;
-	int lines = 0;
-
-	//contar linhas
-	while ( getline(in_stream, dummy_data) ) lines++;
-
-//? //extrair dados
-	in_stream.seekg(0); //Volta buffer pro início do stream
-	for (int i = 0; i < lines; ++i)
+	char c;
+	int i = 0;
+	
+	while ( in_stream.tellg() != -1) // algo q possa usar .end
 	{
+		// ex linha :  "14/12/2016";"Marcos Ninja";5
+
 		// extraindo data de adimissão de Funcionario[i]...
 		in_stream.ignore(1); // ignora o primeiro '\"'
 		getline( in_stream, dummy_data, '\"');
-
+		// atribuindo a funcionário  dummy
+		dummy.change_admissao(dummy_data); 
+		
 		// extraindo nome de Funcionario[i]...
 		in_stream.ignore(2); //	ignora ';' e '\"'
 		getline( in_stream, dummy_nome, '\"');
+		// atribuindo a funcionário  dummy
+		dummy.change_nome(dummy_nome); 
 
 		// extraindo salário de Funcionario[i]...
 		in_stream.ignore(1); //	ignora ';'
-		getline( in_stream, dummy_sala, '\"');
+		in_stream >> dummy_sala;
+		// atribuindo a funcionário  dummy
+		dummy.change_salario(dummy_sala); 
 
-//?		//atribuindo
-		lista_f.push_back(	Funcionario(	dummy_data, dummy_nome, std::stof(	dummy_sala	)	)	);	//Atribuindo um Funcionario rvalue
+		// ignora '\n' (remasce no buffer por usar ">>" na linha 78 e não getline)
+		in_stream.ignore(1);	
+
+		//atribuindo FUNCIONARIO a lista de funcionarios da empresa
+		lista_f.push_back( dummy );
 	}
 
 	in_stream.close();

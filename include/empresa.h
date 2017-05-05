@@ -40,6 +40,9 @@ class Empresa
 		// Sobrecarga de << imprime lista de funcionarios
 		friend ostream& operator<< (ostream &out, Empresa &a);
 
+		// Para auxiliar add_funcionario; 
+		bool funcionario_ja_existe(Funcionario &employee);	// só adiciona o funcionario se já não estiver presente na lista;
+
 		// Adicionar funcionários (o mesmo funcionário não pode ter dois cadastros na mesma empresa)
 		void add_funcionario(Funcionario &employee);	// para adicionar um Funcionaro
 		void add_funcionario(list<Funcionario> &employee_list);	// para adicionar ponteiro para Funcionario

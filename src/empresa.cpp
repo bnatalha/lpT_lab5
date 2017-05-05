@@ -24,16 +24,27 @@ ostream& operator<< (ostream &out, Empresa &a)
 	return out;
 }
 
+//auxilia em adicionar funcionarios
+bool Empresa::funcionario_ja_existe(Funcionario &employee)
+{
+	for (list<Funcionario>::iterator it = lista_f.begin(); it != lista_f.end(); it++)
+	{
+		if( (*it) == employee ) return true;
+	}
+	return false;
+}
+
+//adicionar funcionarios
 void Empresa::add_funcionario(Funcionario &employee)
 {
-	lista_f.push_back(employee);
+	if(funcionario_ja_existe(employee) == false) lista_f.push_back(employee);
 }
 
 void Empresa::add_funcionario(list<Funcionario> &employee_list)
 {
 	for (list<Funcionario>::iterator it = employee_list.begin(); it != employee_list.end(); it++)
 	{
-		lista_f.push_back(*it);
+		if(funcionario_ja_existe(*it) == false) lista_f.push_back(*it);
 	}
 }
 
@@ -54,8 +65,6 @@ void Empresa::add_funcionario(const char *filename)
 	float dummy_sala;
 	string dummy_data;
 	string dummy_nome;
-	char c;
-	int i = 0;
 	
 	while ( in_stream.tellg() != -1) // algo q possa usar .end
 	{
@@ -83,20 +92,19 @@ void Empresa::add_funcionario(const char *filename)
 		in_stream.ignore(1);	
 
 		//atribuindo FUNCIONARIO a lista de funcionarios da empresa
-		lista_f.push_back( dummy );
+
+		if(funcionario_ja_existe(dummy) == false) lista_f.push_back( dummy );		
 	}
 
 	in_stream.close();
-
 }
 
 void Empresa::add_funcionario(string &filename)	//Chamar um método de dentro de outro método (?)
 {
-	// Empresa::add_funcionario(filename.c_str());
 	add_funcionario(filename.c_str());
 }
 
-//? iterator
+//modifica salario de todos
 void Empresa::dar_aumento_a_todos(float raise_rate)
 {
 	float total_raise;
@@ -109,7 +117,7 @@ void Empresa::dar_aumento_a_todos(float raise_rate)
 	}
 }
 
-
+//retorna quantidade de funcionarios cadastrados
 unsigned int Empresa::qtd_funcionario()
 {
 	return lista_f.size();

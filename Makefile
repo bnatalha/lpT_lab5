@@ -1,9 +1,9 @@
 ##by @bnatalha.
 
-CPPFLAGS += -Wall -ansi -std=c++11 -pedantic -O0
+#CPPFLAGS += -Wall -ansi -std=c++11 -pedantic -O0
 
 #For debugging
-#CPPFLAGS += -Wall -ansi -std=c++11 -pedantic -O0 -g
+CPPFLAGS += -Wall -ansi -std=c++11 -pedantic -O0 -g
 
 INC =-I include
 
@@ -28,7 +28,7 @@ val:
 
 #Generates executable files
 bin/main: bin/main.o bin/funcionario.o bin/empresa.o
-#bin/main: bin/main.o bin/funcionario.o
+#bin/main: bin/main.o
 	g++ $^ -o $@
 
 #Generates objects

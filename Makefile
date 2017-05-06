@@ -7,7 +7,7 @@ CPPFLAGS += -Wall -ansi -std=c++11 -pedantic -O0 -g
 
 INC =-I include
 
-.PHONY: all init val clean
+.PHONY: all init val clean test vai
 
 #Creates everything that is needed in order to compile, compiles and then deletes the .o files
 all: init bin/main clean
@@ -28,7 +28,6 @@ val:
 
 #Generates executable files
 bin/main: bin/main.o bin/funcionario.o bin/empresa.o
-#bin/main: bin/main.o
 	g++ $^ -o $@
 
 #Generates objects
@@ -44,3 +43,15 @@ bin/empresa.o: src/empresa.cpp
 #Removes objects
 clean:
 	$(RM) bin/*.o
+
+## test
+test: test/main
+
+vai:
+	test/main
+
+test/main: test/main.o
+	g++ $^ -o $@
+
+test/main.o: test/main.cpp
+	g++ $(CPPFLAGS) $< $(INC) -c -o $@

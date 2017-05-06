@@ -1,5 +1,6 @@
-// O que define um funcionário ser igual ao outro? nome e admissão ou só nome?
+// O que define um funcionário ser igual ao outro? nome e admissão ou só nome? R: tudo
 // Como medir qual o dia atual? Pergunta ao funcionário ou ao sistema?
+//		http://www.cplusplus.com/reference/chrono/system_clock/
 //
 
 #ifndef EMPRESA_H
@@ -13,6 +14,10 @@
 #include <fstream>
 
 using std::ifstream;
+
+#include <ctime>
+#include <ratio>
+#include <chrono>
 
 class Empresa
 {
@@ -28,15 +33,13 @@ class Empresa
 
 		Empresa(string name, string code, list<Funcionario> &employee_list) 
 			: nome(name), cnpj(code), lista_f(employee_list) {}
+
 		//Destrutores
 		~Empresa(){
-			//~lista_f();
 		}
 
 		// Funções
 
-		// Sobrecargas de operadores
-		//
 		// Sobrecarga de << imprime lista de funcionarios
 		friend ostream& operator<< (ostream &out, Empresa &a);
 
@@ -52,12 +55,12 @@ class Empresa
 		// Aumento de X% a todos funcionarios de uma vez;
 		void dar_aumento_a_todos(float raise_rate);
 
-		// Lista funcionarios cadastrados desde 90 dias atrás (?)
-		// void funcionario_em_experiencia( void );
+		// Lista funcionarios cadastrados desde 90 dias atrás
+		int dias_desde_entrada(Funcionario &employee);
+		void mostrar_funcionario_em_experiencia();
 
 		//Funções auxiliares
-		unsigned int qtd_funcionario();
-
+		unsigned int qtd_funcionario();	//pra q
 
 };
 

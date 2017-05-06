@@ -5,6 +5,7 @@
 
 #include "empresa.h"
 
+//sobrecarga de <<
 ostream& operator<< (ostream &out, Empresa &a)
 {
 
@@ -63,7 +64,7 @@ void Empresa::add_funcionario(const char *filename)
 
 	Funcionario dummy;
 	float dummy_sala;
-	string dummy_data;
+	string dummy_admi;
 	string dummy_nome;
 	
 	while ( in_stream.tellg() != -1) // algo q possa usar .end
@@ -72,9 +73,9 @@ void Empresa::add_funcionario(const char *filename)
 
 		// extraindo data de adimissão de Funcionario[i]...
 		in_stream.ignore(1); // ignora o primeiro '\"'
-		getline( in_stream, dummy_data, '\"');
+		getline( in_stream, dummy_admi, '\"');
 		// atribuindo a funcionário  dummy
-		dummy.change_admissao(dummy_data); 
+		dummy.change_admissao(dummy_admi); 
 		
 		// extraindo nome de Funcionario[i]...
 		in_stream.ignore(2); //	ignora ';' e '\"'
@@ -121,4 +122,43 @@ void Empresa::dar_aumento_a_todos(float raise_rate)
 unsigned int Empresa::qtd_funcionario()
 {
 	return lista_f.size();
+}
+
+
+// Função baseada em Exemplo de http://www.cplusplus.com/reference/chrono/system_clock/from_time_t/
+int Empresa::dias_desde_entrada(Funcionario &employee)
+{
+	using namespace std::chrono;
+
+	string dia(employee.get_admissao().begin(),   employee.get_admissao().begin()+2);	// armazena dia de admissão
+	string mes(employee.get_admissao().begin()+3, employee.get_admissao().begin()+5);	// armazena mês de admissão
+	string ano(employee.get_admissao().begin()+6, employee.get_admissao().end());	// armazena ano de admissão
+
+	// cria um std::tm com informações do dia de admissão
+	std::tm timeinfo = std::tm();	// ?
+	timeinfo.tm_year = stoi(ano) - 1900;	// 0 = 1900, 1 = 1901...
+	timeinfo.tm_mon = stoi(mes) - 1;	// 0 = janeiro, 1 = fevereiro...
+	timeinfo.tm_mday = stoi(dia);	// 1 = 1º dia do mês, 2 = 2º dia do mês...
+	std::time_t tt = std::mktime (&timeinfo);	// converte de std::tm para time_t
+
+	system_clock::time_point tp = system_clock::from_time_t (tt);
+	system_clock::duration d = system_clock::now() - tp;
+
+	// converte tempo de duração para dias
+	typedef duration<int,std::ratio<60*60*24>> days_type;
+	days_type ndays = duration_cast<days_type> (d);
+
+	return ndays.count();
+}
+
+
+void Empresa::mostrar_funcionario_em_experiencia()
+{
+
+	cout << "Lista de funcionários em período de experiência da empresa " << nome <<":\n{\n";
+	for (list<Funcionario>::iterator it = lista_f.begin(); it != lista_f.end(); it++)
+	{
+		if(dias_desde_entrada(*it) <= 90) cout << "\t"<< (*it) << endl;
+	}
+	cout << "}";
 }

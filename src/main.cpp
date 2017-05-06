@@ -40,15 +40,15 @@ int main(int argc, char const *argv[])
 	cout <<"\n\t\tEmpresa A\n" << A << endl;
 	cout <<"\n\t\tEmpresa B\n" << B << endl << endl;
 
-		//Dar aumento
-	cout << "|\tDando aumento para Funcionarios da empressa B...";
+	//	Dar aumento
+	cout << "|\tDando aumento para Funcionarios da empressa B de 7,5%...";
 	B.dar_aumento_a_todos(7.5);
 	cout << "Pronto" << endl;
 	cout <<"\n\t\tEmpresa B\n" << B << endl << endl;
 
 
-		//Adicionar funcionario
-	string path_csv("data/my_employees_B.csv");
+	//	Adicionar funcionario
+	string path_csv("data/my_employees_B.csv");	//caminho do arquivo armazenado em string
 
 	cout << "Adicionando Funcionarios...";
 	A.add_funcionario(f);
@@ -59,8 +59,12 @@ int main(int argc, char const *argv[])
 	cout << "Pronto" << endl;
 	cout <<"\n\t\tEmpresa A\n" << A << endl << endl;
 
-		// Imprimir em experiencia
-	//
+	//	Imprimir em experiencia
+	A.mostrar_funcionario_em_experiencia();
+	cout << endl;
+
+
+	
 
 	cout << "FIM\n";
 	return 0;

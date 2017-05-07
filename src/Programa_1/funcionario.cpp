@@ -1,6 +1,21 @@
+/**
+* @file	funcionario.cpp
+* @brief Implementação dos métodos da classe Funcionario
+* @author Natália Azevedo de Brito (https://github.com/bnatalha/)
+* @since 04/04/2017
+* @date 07/05/2017
+* @sa http://www.cplusplus.com/ , http://en.cppreference.com/ 
+*/
+
 #include "funcionario.h"
 
-//verificar dados
+// =================================== verificar dados ===================================
+//
+
+/** 
+* @brief Funcao Funcionario::get_nome 
+* @return Retorna uma string com o nome do Funcionario
+*/
 string Funcionario::get_nome()
 {
 	return nome;

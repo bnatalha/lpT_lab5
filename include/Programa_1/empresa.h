@@ -1,7 +1,11 @@
-// O que define um funcionário ser igual ao outro? nome e admissão ou só nome? R: tudo
-// Como medir qual o dia atual? Pergunta ao funcionário ou ao sistema?
-//		http://www.cplusplus.com/reference/chrono/system_clock/
-//
+/**
+* @file	empresa.cpp
+* @brief Onde fica a definição da classe Empresa
+* @author Natália Azevedo de Brito (https://github.com/bnatalha/)
+* @since 04/04/2017
+* @date 07/05/2017
+* @sa http://www.cplusplus.com/ , http://en.cppreference.com/ 
+*/
 
 #ifndef EMPRESA_H
 #define EMPRESA_H
@@ -18,49 +22,51 @@ using std::ifstream;
 #include <ctime>
 #include <ratio>
 #include <chrono>
+// O que define um funcionário ser igual ao outro? nome e admissão ou só nome? R: tudo
+// Como medir qual o dia atual? Pergunta ao funcionário ou ao sistema?
+//		http://www.cplusplus.com/reference/chrono/system_clock/
 
+
+
+/**
+* @class Empresa empresa.h
+*/
 class Empresa
 {
 	private:
-		string nome;
-		string cnpj;
-		list<Funcionario> lista_f;
+		string nome;	///< Nome da empresa
+		string cnpj;	///< CNPJ da empresa
+		list<Funcionario> lista_f;	///< Lista de funcionários da empresa
 
 	public:
-		//Construtores
-		Empresa(string name, string code)
+
+		Empresa(string name, string code) /**< Constroi sem precisar de uma lista */
 			: nome(name), cnpj(code) {}
 
-		Empresa(string name, string code, list<Funcionario> &employee_list) 
+		Empresa(string name, string code, list<Funcionario> &employee_list) /**< Constroi passando todos atributos */
 			: nome(name), cnpj(code), lista_f(employee_list) {}
 
-		//Destrutores
-		~Empresa(){
-		}
+		// Função de sobrecarga
+		friend ostream& operator<< (ostream &out, Empresa &a);	/**< Sobrecarga do operador << */
 
-		// Funções
+		// Filtro para adicionar funcionários
+		bool funcionario_ja_existe(Funcionario &employee);	/**< Só adiciona o funcionário se já não estiver presente na lista */
 
-		// Sobrecarga de << imprime lista de funcionarios
-		friend ostream& operator<< (ostream &out, Empresa &a);
+		// Adicionar funcionários
+		void add_funcionario(Funcionario &employee);	/**< Adiciona um funcionario à lista da empresa */
+		void add_funcionario(list<Funcionario> &employee_list);	/**< Adiciona uma lista de funcionários à lista da empresa */
+		void add_funcionario(const char *filename);	/**< Adiciona funcionários à lista da empresa partir de um arquivo .csv */
+		void add_funcionario(string &filename);	/**< Adiciona funcionários à lista da empresa partir de um arquivo .csv */
+		// PARADA
 
-		// Para auxiliar add_funcionario; 
-		bool funcionario_ja_existe(Funcionario &employee);	// só adiciona o funcionario se já não estiver presente na lista;
-
-		// Adicionar funcionários (o mesmo funcionário não pode ter dois cadastros na mesma empresa)
-		void add_funcionario(Funcionario &employee);	// para adicionar um Funcionaro
-		void add_funcionario(list<Funcionario> &employee_list);	// para adicionar ponteiro para Funcionario
-		void add_funcionario(const char *filename);	// para adicionar a partir de um arquivo .csv
-		void add_funcionario(string &filename);	// para adicionar a partir de um arquivo .csv
-
-		// Aumento de X% a todos funcionarios de uma vez;
-		void dar_aumento_a_todos(float raise_rate);
+		void dar_aumento_a_todos(float raise_rate); /**< Aumento de X% a todos funcionarios de uma vez */
 
 		// Lista funcionarios cadastrados desde 90 dias atrás
-		int dias_desde_entrada(Funcionario &employee);
-		void mostrar_funcionario_em_experiencia();
+		int dias_desde_entrada(Funcionario &employee); /**< Retorna há quantos dias um funcionário está na empresa */
+		void mostrar_funcionario_em_experiencia(); /**< Lista funcionarios cadastrados desde 90 dias atrás */
 
 		//Funções auxiliares
-		unsigned int qtd_funcionario();	//pra q
+		unsigned int qtd_funcionario();	/**< Retorna a quantidade de funcionários na empresa */
 
 };
 

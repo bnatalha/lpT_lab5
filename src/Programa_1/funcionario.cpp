@@ -13,41 +13,62 @@
 //
 
 /** 
-* @brief Funcao Funcionario::get_nome 
-* @return Retorna uma string com o nome do Funcionario
+* @return string com o nome do funcionário
 */
 string Funcionario::get_nome()
 {
 	return nome;
 }
 
+/** 
+* @return float com o salário do funcionário
+*/
 float Funcionario::get_salario()
 {
 	return salario;
 }
 
+/** 
+* @return string com a data de adimissão do funcionário no fomato dd/mm/aaaa
+*/
 string Funcionario::get_admissao()
 {
 	return admissao;
 }
 
-//alterações
+// ======================================== alterações ======================================
+
+/**
+* @param new_salary Referência para um float que vai ser o novo salário do funcionário 
+*/
 void Funcionario::change_salario(float &new_salary) 
 { 
 	salario = new_salary; 
 }
 
+/**
+* @param new_nome Referência para um string que vai ser o novo nome do funcionário 
+*/
 void Funcionario::change_nome(string &new_name)
 {
 	nome = new_name; 
 }
 
+/**
+* @param new_salary Referência para um string que vai ser a nova data de admissão do funcionário
+*/
 void Funcionario::change_admissao(string &new_admission)
 {	
 	admissao = new_admission; 
 }	
 
-//sobrecarga de operadores
+// =============================== sobrecarga de operadores ================================
+
+/**
+* @param out Referência para um objeto ostream
+* @param a Referência para um objeto Funcionario constante
+* @return Referência para o objeto ostream out
+*/
 ostream& operator<< (ostream &out, Funcionario const a)
 {
 	out << "Nome: " << a.nome
@@ -56,6 +77,10 @@ ostream& operator<< (ostream &out, Funcionario const a)
 	return out;
 }
 
+/**
+* @param a Referência para um objeto Funcionario
+* @return True se os funcionários forem iguais em todos atributos; em outrocaso, False
+*/
 bool Funcionario::operator== (Funcionario &a)
 {
 	if (nome == a.nome and 
@@ -65,6 +90,7 @@ bool Funcionario::operator== (Funcionario &a)
 	return false;
 }
 
+/*
 Funcionario& Funcionario::operator= (Funcionario const &a)
 {
 	nome = a.nome;
@@ -72,3 +98,4 @@ Funcionario& Funcionario::operator= (Funcionario const &a)
 	admissao = a.admissao;
 	return *this;
 }
+*/

@@ -7,7 +7,7 @@ CPPFLAGS += -Wall -ansi -std=c++11 -pedantic -O0
 
 INC =-I include
 
-.PHONY: all init val clean
+.PHONY: all init val clean docs
 
 #Creates everything that is needed in order to compile, compiles and then deletes the .o files
 all: init bin/Programa_1 clean
@@ -18,11 +18,11 @@ init:
 
 #Creates the 'docs' folder at the current directory if there's no other folder with this name on it.
 #Generates .html documentation via doxygen at the folder 'docs'
-doc: Doxyfile
+docs: Doxyfile
 	mkdir -p docs ;\
 	doxygen	
 
-#Runs valgrind with 'bin/main'
+#Runs valgrind with 'bin/Programa_1'
 val1:
 	valgrind --leak-check=yes bin/Programa_1
 

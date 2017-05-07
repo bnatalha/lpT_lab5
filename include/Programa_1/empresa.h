@@ -1,5 +1,5 @@
 /**
-* @file	empresa.cpp
+* @file	empresa.h
 * @brief Onde fica a definição da classe Empresa
 * @author Natália Azevedo de Brito (https://github.com/bnatalha/)
 * @since 04/04/2017
@@ -26,23 +26,32 @@ using std::ifstream;
 // Como medir qual o dia atual? Pergunta ao funcionário ou ao sistema?
 //		http://www.cplusplus.com/reference/chrono/system_clock/
 
-
-
 /**
 * @class Empresa empresa.h
 */
 class Empresa
 {
 	private:
-		string nome;	///< Nome da empresa
-		string cnpj;	///< CNPJ da empresa
-		list<Funcionario> lista_f;	///< Lista de funcionários da empresa
+		string nome;	/**< Nome da empresa */
+		string cnpj;	/**< CNPJ da empresa */
+		list<Funcionario> lista_f;	/**< Lista de funcionários da empresa */
 
 	public:
 
-		Empresa(string name, string code) /**< Constroi sem precisar de uma lista */
+		/**
+		* @brief Constroi um objeto Empresa sem precisar de uma lista
+		* @param name Será o nome da empresa
+		* @param code Será o CNPJ da empresa
+		*/
+		Empresa(string name, string code)
 			: nome(name), cnpj(code) {}
 
+		/**
+		* @brief Constroi um objeto Empresa com todos os atributos
+		* @param name Será o nome da empresa
+		* @param code Será o CNPJ da empresa
+		* @param employee_list Será a lista de funcionários da empresa
+		*/
 		Empresa(string name, string code, list<Funcionario> &employee_list) /**< Constroi passando todos atributos */
 			: nome(name), cnpj(code), lista_f(employee_list) {}
 
@@ -57,7 +66,6 @@ class Empresa
 		void add_funcionario(list<Funcionario> &employee_list);	/**< Adiciona uma lista de funcionários à lista da empresa */
 		void add_funcionario(const char *filename);	/**< Adiciona funcionários à lista da empresa partir de um arquivo .csv */
 		void add_funcionario(string &filename);	/**< Adiciona funcionários à lista da empresa partir de um arquivo .csv */
-		// PARADA
 
 		void dar_aumento_a_todos(float raise_rate); /**< Aumento de X% a todos funcionarios de uma vez */
 

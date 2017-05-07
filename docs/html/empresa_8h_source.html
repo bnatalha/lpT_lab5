@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Laboratório 5: Código-Fonte de include/Programa_1/empresa.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Laboratório 5
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+   <div id="projectbrief">Laboratório 5 parcialmente feito.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.14 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_32eeb24bfa14d34329347dfd5ab2c5e0.html">Programa_1</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">empresa.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="empresa_8h.html">Vá para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#ifndef EMPRESA_H</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define EMPRESA_H</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//Meus arquivos de cabeçalho</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="header_8h.html">header.h</a>&quot;</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="funcionario_8h.html">funcionario.h</a>&quot;</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">//Bibliotecas do STL</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">using</span> std::ifstream;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;ratio&gt;</span></div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">// O que define um funcionário ser igual ao outro? nome e admissão ou só nome? R: tudo</span></div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">// Como medir qual o dia atual? Pergunta ao funcionário ou ao sistema?</span></div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">//      http://www.cplusplus.com/reference/chrono/system_clock/</span></div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classEmpresa.html">   32</a></span>&#160;<span class="keyword">class </span><a class="code" href="classEmpresa.html">Empresa</a></div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">private</span>:</div><div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classEmpresa.html#a002b8d14fdfdd614995f842333ff5e51">   35</a></span>&#160;        <span class="keywordtype">string</span> <a class="code" href="classEmpresa.html#a002b8d14fdfdd614995f842333ff5e51">nome</a>;    </div><div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classEmpresa.html#afb41fbb08ccbd980211b30b997528ba0">   36</a></span>&#160;        <span class="keywordtype">string</span> <a class="code" href="classEmpresa.html#afb41fbb08ccbd980211b30b997528ba0">cnpj</a>;    </div><div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classEmpresa.html#a18615a97898ea784ffe9f3ea486e250e">   37</a></span>&#160;        list&lt;Funcionario&gt; <a class="code" href="classEmpresa.html#a18615a97898ea784ffe9f3ea486e250e">lista_f</a>;  </div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classEmpresa.html#a635339867258b8d4fd5fd2e86176a9bf">   46</a></span>&#160;        <a class="code" href="classEmpresa.html#a635339867258b8d4fd5fd2e86176a9bf">Empresa</a>(<span class="keywordtype">string</span> name, <span class="keywordtype">string</span> code)</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            : nome(name), cnpj(code) {}</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div><div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classEmpresa.html#ad1b2318c92fcfb01b9b84899d56a9bf6">   55</a></span>&#160;        <a class="code" href="classEmpresa.html#ad1b2318c92fcfb01b9b84899d56a9bf6">Empresa</a>(<span class="keywordtype">string</span> name, <span class="keywordtype">string</span> code, list&lt;Funcionario&gt; &amp;employee_list) </div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            : nome(name), cnpj(code), lista_f(employee_list) {}</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="comment">// Função de sobrecarga</span></div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">friend</span> ostream&amp; <a class="code" href="classEmpresa.html#a88b92a1c8f152bdc6d4f70eff23a0aba">operator&lt;&lt; </a>(ostream &amp;out, <a class="code" href="classEmpresa.html">Empresa</a> &amp;a);  </div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="comment">// Filtro para adicionar funcionários</span></div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classEmpresa.html#a7ac4d86c539ae13449b4656479877a56">funcionario_ja_existe</a>(<a class="code" href="classFuncionario.html">Funcionario</a> &amp;employee);  </div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="comment">// Adicionar funcionários</span></div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classEmpresa.html#a38f828a4305a40d3396d57b364307065">add_funcionario</a>(<a class="code" href="classFuncionario.html">Funcionario</a> &amp;employee);    </div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classEmpresa.html#a38f828a4305a40d3396d57b364307065">add_funcionario</a>(list&lt;Funcionario&gt; &amp;employee_list); </div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classEmpresa.html#a38f828a4305a40d3396d57b364307065">add_funcionario</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *filename); </div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classEmpresa.html#a38f828a4305a40d3396d57b364307065">add_funcionario</a>(<span class="keywordtype">string</span> &amp;filename); </div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classEmpresa.html#a6e9f476b416299014655932215e3e894">dar_aumento_a_todos</a>(<span class="keywordtype">float</span> raise_rate); </div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="comment">// Lista funcionarios cadastrados desde 90 dias atrás</span></div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classEmpresa.html#a1e7daa74418a25bd7e8300006b640d36">dias_desde_entrada</a>(<a class="code" href="classFuncionario.html">Funcionario</a> &amp;employee); </div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classEmpresa.html#a293c4772d5c6321f7f40401042ccfe86">mostrar_funcionario_em_experiencia</a>(); </div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="comment">//Funções auxiliares</span></div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classEmpresa.html#aad0448cb0be3ae171bd75ac0ffc6a420">qtd_funcionario</a>(); </div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="header_8h_html"><div class="ttname"><a href="header_8h.html">header.h</a></div><div class="ttdoc">Onde ficam as inclusões das bibliotecas e alias/namespaces utilizadas por todos os arquivos...</div></div>
+<div class="ttc" id="classEmpresa_html_a88b92a1c8f152bdc6d4f70eff23a0aba"><div class="ttname"><a href="classEmpresa.html#a88b92a1c8f152bdc6d4f70eff23a0aba">Empresa::operator&lt;&lt;</a></div><div class="ttdeci">friend ostream &amp; operator&lt;&lt;(ostream &amp;out, Empresa &amp;a)</div><div class="ttdef"><b>Definition:</b> empresa.cpp:17</div></div>
+<div class="ttc" id="classEmpresa_html_a7ac4d86c539ae13449b4656479877a56"><div class="ttname"><a href="classEmpresa.html#a7ac4d86c539ae13449b4656479877a56">Empresa::funcionario_ja_existe</a></div><div class="ttdeci">bool funcionario_ja_existe(Funcionario &amp;employee)</div><div class="ttdef"><b>Definition:</b> empresa.cpp:40</div></div>
+<div class="ttc" id="classEmpresa_html"><div class="ttname"><a href="classEmpresa.html">Empresa</a></div><div class="ttdef"><b>Definition:</b> empresa.h:32</div></div>
+<div class="ttc" id="classEmpresa_html_afb41fbb08ccbd980211b30b997528ba0"><div class="ttname"><a href="classEmpresa.html#afb41fbb08ccbd980211b30b997528ba0">Empresa::cnpj</a></div><div class="ttdeci">string cnpj</div><div class="ttdef"><b>Definition:</b> empresa.h:36</div></div>
+<div class="ttc" id="classEmpresa_html_a635339867258b8d4fd5fd2e86176a9bf"><div class="ttname"><a href="classEmpresa.html#a635339867258b8d4fd5fd2e86176a9bf">Empresa::Empresa</a></div><div class="ttdeci">Empresa(string name, string code)</div><div class="ttdoc">Constroi um objeto Empresa sem precisar de uma lista. </div><div class="ttdef"><b>Definition:</b> empresa.h:46</div></div>
+<div class="ttc" id="classEmpresa_html_a002b8d14fdfdd614995f842333ff5e51"><div class="ttname"><a href="classEmpresa.html#a002b8d14fdfdd614995f842333ff5e51">Empresa::nome</a></div><div class="ttdeci">string nome</div><div class="ttdef"><b>Definition:</b> empresa.h:35</div></div>
+<div class="ttc" id="classEmpresa_html_ad1b2318c92fcfb01b9b84899d56a9bf6"><div class="ttname"><a href="classEmpresa.html#ad1b2318c92fcfb01b9b84899d56a9bf6">Empresa::Empresa</a></div><div class="ttdeci">Empresa(string name, string code, list&lt; Funcionario &gt; &amp;employee_list)</div><div class="ttdoc">Constroi um objeto Empresa com todos os atributos. </div><div class="ttdef"><b>Definition:</b> empresa.h:55</div></div>
+<div class="ttc" id="classEmpresa_html_aad0448cb0be3ae171bd75ac0ffc6a420"><div class="ttname"><a href="classEmpresa.html#aad0448cb0be3ae171bd75ac0ffc6a420">Empresa::qtd_funcionario</a></div><div class="ttdeci">unsigned int qtd_funcionario()</div><div class="ttdef"><b>Definition:</b> empresa.cpp:147</div></div>
+<div class="ttc" id="funcionario_8h_html"><div class="ttname"><a href="funcionario_8h.html">funcionario.h</a></div><div class="ttdoc">Declaração da classe Funcionario. </div></div>
+<div class="ttc" id="classEmpresa_html_a38f828a4305a40d3396d57b364307065"><div class="ttname"><a href="classEmpresa.html#a38f828a4305a40d3396d57b364307065">Empresa::add_funcionario</a></div><div class="ttdeci">void add_funcionario(Funcionario &amp;employee)</div><div class="ttdef"><b>Definition:</b> empresa.cpp:52</div></div>
+<div class="ttc" id="classEmpresa_html_a293c4772d5c6321f7f40401042ccfe86"><div class="ttname"><a href="classEmpresa.html#a293c4772d5c6321f7f40401042ccfe86">Empresa::mostrar_funcionario_em_experiencia</a></div><div class="ttdeci">void mostrar_funcionario_em_experiencia()</div><div class="ttdef"><b>Definition:</b> empresa.cpp:180</div></div>
+<div class="ttc" id="classEmpresa_html_a1e7daa74418a25bd7e8300006b640d36"><div class="ttname"><a href="classEmpresa.html#a1e7daa74418a25bd7e8300006b640d36">Empresa::dias_desde_entrada</a></div><div class="ttdeci">int dias_desde_entrada(Funcionario &amp;employee)</div><div class="ttdef"><b>Definition:</b> empresa.cpp:156</div></div>
+<div class="ttc" id="classFuncionario_html"><div class="ttname"><a href="classFuncionario.html">Funcionario</a></div><div class="ttdef"><b>Definition:</b> funcionario.h:18</div></div>
+<div class="ttc" id="classEmpresa_html_a6e9f476b416299014655932215e3e894"><div class="ttname"><a href="classEmpresa.html#a6e9f476b416299014655932215e3e894">Empresa::dar_aumento_a_todos</a></div><div class="ttdeci">void dar_aumento_a_todos(float raise_rate)</div><div class="ttdef"><b>Definition:</b> empresa.cpp:133</div></div>
+<div class="ttc" id="classEmpresa_html_a18615a97898ea784ffe9f3ea486e250e"><div class="ttname"><a href="classEmpresa.html#a18615a97898ea784ffe9f3ea486e250e">Empresa::lista_f</a></div><div class="ttdeci">list&lt; Funcionario &gt; lista_f</div><div class="ttdef"><b>Definition:</b> empresa.h:37</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

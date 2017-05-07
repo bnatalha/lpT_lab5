@@ -12,8 +12,7 @@
 #include "empresa.h"
 
 /** 
-* @brief Funcao principal 
-* @detail Demonstra as funcionalidades da classe Empresa e Funcionario
+* @brief Demonstra as funcionalidades da classe Empresa e Funcionario
 */
 int main(int argc, char const *argv[])
 {

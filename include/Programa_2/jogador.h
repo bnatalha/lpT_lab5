@@ -26,7 +26,7 @@ class Jogador
 		//Funções
 		void escolher(escolha_jogador x);	// Muda a escolha do jogador
 		void jogar_dados();	// Joga os dados para saber qual a pontuação da vez
-		void atualizar_situacao();	// Atualiza a situaão do jogador com relação a sua pontuação
+		void atualizar_situacao(int &valor_N);	// Atualiza a situaão do jogador com relação a sua pontuação
 
 		string get_nome();	// Retorna o nome do Jogador;
 		int get_pontuacao();	// Retorna a pontuacao agregada do Jogador;

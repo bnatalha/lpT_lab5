@@ -22,6 +22,9 @@ void Jogo::remover_jogadores_nao_aptos()
 	{
 		if( (*it).get_situacao() == a_situacao::Perdeu )
 		{
+			// procura o original(mesmo nome) na lista inicial. nao pode ter dois jogadores com o mesmo nome em um jogo.
+				// atribui ao original o jogador
+			// deleta perdedor da lista de aptos
 			perdedor = it++;
 			jogadores_aptos.remove(*perdedor);
 		}
@@ -35,12 +38,12 @@ void Jogo::jogar_rodada()
 	{
 		// Por vez
 		int vez = 0;
-		unsigned int n_jogadores_aptos = jogadores_aptos.size();
-		int maior_pontuacao_parado = 0;
+		unsigned int faltam_decidir = jogadores_aptos.size();
 		cout << "============== Jogada " << vez << " ==============\n";
-		for (list<Jogador>::iterator it = jogadores_aptos.begin() ; it != jogadores_aptos.end(); it++)
+		for (list<Jogador>::iterator it = jogadores_aptos.begin() ; it != jogadores_aptos.end(); it++, faltam_decidir--)
 		{
 			cout << "-------------- Jogador: " << (*it).get_nome() << "--------------\n";
+			cout << "Restam: " << faltam_decidir << endl << endl;
 			
 			(*it).escolher();
 
@@ -48,30 +51,28 @@ void Jogo::jogar_rodada()
 			{
 				(*it).jogar_dados();
 
-				if ( (*it).get_pontuacao() > N ) //remove da lista de aptos
-				{
+				if ( (*it).get_pontuacao() > N ) // marcajogador para ser excluido da lista de jogadores aptos
 					cout << (*it).get_nome() << " ultrapassou " << N << " e está fora do jogo. ):" << endl;
-					(*it).
-				}
-
-				if ( (*it).get_pontuacao() == N ) //remove da lista de aptos
-				{
-					cout << (*it).get_nome() << " ultrapassou " << N << " e está fora do jogo. ):" << endl;
-				}
-
-				(*it).atualizar_situacao();
+	
+				(*it).atualizar_situacao(N);	//Ganhou, Jogando ou Perdeu, com base em N (meta)
 			}
 		}
 		cout << "============== FIM de Jogada " << vez << " ==============\n";
-		cout << "Removendo jogadores que estouraram o valor" << N << "...";
+		cout << "Atualizando lista de jogadores aptos" << N << "...";
 		remover_jogadores_nao_aptos();
 		cout << "Pronto" << endl;
 
-		//Comparar pontuacoes.
-			//se houver ganhadores, imprimmi-los, fim rodada.
-			//senao. fim jogada
+		cout << "Verificando se há vencedores..."
+		if ( existe_jogador(a_situacao::Ganhou) )
+		{
+			cout << "Pronto." << endl;
+			break;	// sai do loop while;
+		}
+		cout << "Pronto." << endl;
 
-	} while(existe_jogador_jogando());
+		vez++;
+
+	} while(existe_jogador(a_situacao::Jogando));
 
 }
 

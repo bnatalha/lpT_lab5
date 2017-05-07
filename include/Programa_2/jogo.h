@@ -23,10 +23,13 @@ class Jogo
 		//...
 
 		//Funções
-		bool existe_jogador_jogando();
+		bool existe_jogador(a_situacao x);
 
 		void jogar_rodada();
 		void finalizar_rodada();
+		void remover_jogadores_nao_aptos();
+		
+		bool jogo_continua();
 
 		void iniciar_rodada();
 

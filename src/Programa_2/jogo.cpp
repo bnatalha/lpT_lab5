@@ -5,11 +5,11 @@ static int Jogo::get_N()
 	return N;
 }
 
-bool Jogo::existe_jogador_jogando()
+bool Jogo::existe_jogador(a_situacao x);
 {
 	for (list<Jogador>::iterator it = jogadores_aptos.begin() ; it != jogadores_aptos.end(); it++)
 	{
-		if( (*it).get_situacao() == a_situacao::Jogando ) return true;
+		if( (*it).get_situacao() == x ) return true;
 	}
 	return false;
 }
@@ -70,7 +70,7 @@ void Jogo::jogar_rodada()
 		//Comparar pontuacoes.
 			//se houver ganhadores, imprimmi-los, fim rodada.
 			//senao. fim jogada
-		
+
 	} while(existe_jogador_jogando());
 
 }

@@ -67,7 +67,6 @@ class Funcionario
 		//Sobrecarga de operadores
 		friend ostream& operator<< (ostream &out, Funcionario const a); /*< Sobrecarga do operador de inserção em stream */
 		bool operator== (Funcionario &a);	/*< Sobrecarga do operador == de comparação entre objetos */
-		//Funcionario& operator= (Funcionario const &a);	//pra que?
 
 };
 

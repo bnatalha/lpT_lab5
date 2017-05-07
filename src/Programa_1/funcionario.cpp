@@ -89,13 +89,3 @@ bool Funcionario::operator== (Funcionario &a)
 		return true;
 	return false;
 }
-
-/*
-Funcionario& Funcionario::operator= (Funcionario const &a)
-{
-	nome = a.nome;
-	salario = a.salario;
-	admissao = a.admissao;
-	return *this;
-}
-*/
